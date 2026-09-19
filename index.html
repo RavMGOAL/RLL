@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RL Demonlist</title>
+<title>RLL Demonlist</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -301,6 +301,82 @@ footer {
 
     .level-info p {
         font-size: 11px;
+    }
+}
+    
+/* CLICKABLE LEVELS */
+
+.level-card {
+    cursor: pointer;
+}
+
+/* LEVEL DETAIL PAGE */
+
+.level-detail {
+    background: white;
+    border: 1px dashed #d2d2d2;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.035);
+    padding: 25px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background: #f0f3f7;
+    color: #263447;
+    border: 1px solid #d2d2d2;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background: #e2eaf3;
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.detail-title {
+    font-size: 30px;
+    margin: 0 0 15px;
+}
+
+.detail-info {
+    line-height: 1.8;
+    color: #34465c;
+}
+
+.detail-section {
+    border-top: 1px solid #ddd;
+    margin-top: 25px;
+    padding-top: 15px;
+}
+
+.detail-section h3 {
+    font-size: 21px;
+}
+
+.player-record {
+    padding: 12px;
+    margin: 8px 0;
+    background: #f5f7fa;
+    border: 1px solid #e1e5eb;
+}
+
+@media (max-width: 600px) {
+    .level-detail {
+        padding: 15px;
+    }
+
+    .detail-title {
+        font-size: 23px;
     }
 }
 </style>
