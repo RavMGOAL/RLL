@@ -3,156 +3,526 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Demonlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RL Demonlist</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  background: #10131b;
-  color: white;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #263447;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
-header {
-  background: #191e2b;
-  padding: 25px;
-  text-align: center;
+/* TOP NAVIGATION */
+
+.topbar {
+    height: 65px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4.5%;
 }
 
-header h1 {
-  color: #8b78ff;
+.logo {
+    font-size: 19px;
+    font-weight: 800;
+    color: #555;
+    text-decoration: none;
 }
 
-nav {
-  padding: 15px;
-  text-align: center;
-  background: #242a3a;
+.logo span {
+    color: #2787c9;
+    font-size: 13px;
 }
 
-nav a {
-  color: white;
-  margin: 12px;
-  text-decoration: none;
+.toplinks {
+    display: flex;
+    align-items: center;
+    gap: 35px;
 }
 
-main {
-  max-width: 850px;
-  margin: 30px auto;
-  padding: 15px;
+.toplinks a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 700;
+    text-align: center;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  background: #242a3a;
-  color: white;
-  border: 1px solid #414a60;
-  border-radius: 8px;
+.toplinks small {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 2px;
 }
 
-.level {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 18px;
-  margin-bottom: 10px;
-  background: #1c2230;
-  border-radius: 10px;
+/* PAGE NAVIGATION */
+
+.nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border: 1px dashed #d1d1d1;
+    padding: 12px;
 }
 
-.rank {
-  font-size: 25px;
-  color: #9c8cff;
-  font-weight: bold;
-  min-width: 40px;
+.nav a {
+    color: #263447;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0 15px;
 }
 
-.level h3 {
-  margin: 0 0 8px;
+.nav a:hover {
+    color: #2787c9;
 }
 
-.level p {
-  margin: 0;
-  color: #aeb6c9;
+/* MAIN LAYOUT */
+
+.container {
+    max-width: 1120px;
+    margin: 30px auto;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: 2.25fr 0.95fr;
+    gap: 20px;
+    align-items: start;
 }
 
+/* LEVEL CARDS */
+
+.level-card {
+    background: white;
+    border: 1px dashed #d2d2d2;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.035);
+    margin-bottom: 30px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 158px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.level-card:hover {
+    border-color: #9dbbd5;
+    transform: translateY(-2px);
+}
+
+.level-card img {
+    width: 206px;
+    height: 116px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #ddd;
+}
+
+.level-info {
+    min-width: 0;
+}
+
+.level-info h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    color: #202b3b;
+    font-weight: 700;
+}
+
+.level-info h2 span {
+    color: #202b3b;
+}
+
+.level-info p {
+    margin: 3px 0;
+    font-size: 15px;
+}
+
+.level-info .points {
+    font-size: 12px;
+    color: #596b7d;
+}
+
+.level-info a {
+    color: #263447;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* SIDEBAR */
+
+.sidebar-box {
+    background: white;
+    border: 1px dashed #d2d2d2;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.035);
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar-box h2 {
+    font-size: 24px;
+    margin: 10px 0 12px;
+    color: #34465c;
+}
+
+.sidebar-box hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 12px 0;
+}
+
+.sidebar-box p {
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+.people {
+    line-height: 2.5;
+    font-size: 14px;
+}
+
+.people span {
+    margin: 0 3px;
+}
+
+/* SEARCH */
+
+.search {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d2d2d2;
+    background: white;
+    font-family: inherit;
+    font-size: 14px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #2787c9;
+}
+
+.section-title {
+    margin: 0 0 20px;
+    font-size: 26px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 12px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+
+    .toplinks {
+        gap: 12px;
+    }
+
+    .toplinks a {
+        font-size: 12px;
+    }
+
+    .level-card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .level-card img {
+        width: 35%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .level-info h2 {
+        font-size: 18px;
+    }
+
+    .level-info p {
+        font-size: 12px;
+    }
+
+    .sidebar {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .toplinks {
+        gap: 10px;
+    }
+
+    .toplinks a:first-child {
+        display: none;
+    }
+
+    .nav {
+        padding: 12px 3px;
+    }
+
+    .nav a {
+        font-size: 12px;
+        padding: 0 5px;
+    }
+
+    .level-card img {
+        width: 32%;
+    }
+
+    .level-info h2 {
+        font-size: 15px;
+    }
+
+    .level-info p {
+        font-size: 11px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>MY DEMONLIST</h1>
-  <p>The hardest Geometry Dash levels</p>
+<header class="topbar">
+    <a href="#" class="logo">RL<span>.COM</span></a>
+
+    <div class="toplinks">
+        <a href="#">
+            <small>RL LIST</small>
+            Documentation
+        </a>
+
+        <a href="#">
+            <small>PLAYER</small>
+            User Area
+        </a>
+
+        <a href="#">
+            <small>GEOMETRY DASH</small>
+            DEMONLIST ▼
+        </a>
+    </div>
 </header>
 
-<nav>
-  <a href="#">Main List</a>
-  <a href="#">Extended List</a>
-  <a href="#">About</a>
+<nav class="nav">
+    <a href="#" onclick="showList('main'); return false;">Main List</a>
+    <a href="#" onclick="showList('extended'); return false;">Extended List</a>
+    <a href="#" onclick="showList('legacy'); return false;">Legacy List</a>
 </nav>
 
-<main>
-  <h2>Main List</h2>
+<div class="container">
 
-  <input
-    id="search"
-    placeholder="Search for a level..."
-    oninput="searchLevels()"
-  >
+    <main>
+        <h1 class="section-title" id="list-title">Main List</h1>
 
-  <div id="levels"></div>
-</main>
+        <input
+            class="search"
+            type="text"
+            id="search"
+            placeholder="Search for a level..."
+            oninput="renderLevels()"
+        >
+
+        <div id="levels"></div>
+    </main>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-box">
+            <h2>List Editors</h2>
+            <hr>
+
+            <p>
+                Contact any of these people if you have
+                problems with the list or want to see a
+                specific thing changed.
+            </p>
+
+            <div class="people">
+                <span><b>Rav</b></span>
+                <span>GOAL</span>
+                <span>Editor</span>
+                <br>
+                <span>Player1</span>
+                <span>Player2</span>
+                <span>Player3</span>
+            </div>
+
+            <h2>List Helpers</h2>
+            <hr>
+
+            <p>
+                Contact these people if you have questions
+                regarding why a specific record was rejected.
+            </p>
+
+            <div class="people">
+                <span>Helper1</span>
+                <span>Helper2</span>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <h2>Guidelines</h2>
+            <hr>
+
+            <p>
+                All demonlist operations are carried out
+                in accordance with our guidelines.
+                Be sure to check them before submitting
+                a record.
+            </p>
+
+            <p>
+                <a href="#" style="color:#2787c9">
+                    Read the guidelines
+                </a>
+            </p>
+        </div>
+
+    </aside>
+
+</div>
+
+<footer>
+    RL Demonlist · Unofficial Geometry Dash Level List
+</footer>
 
 <script>
 const levels = [
-  {
-    rank: 1,
-    name: "Example Level",
-    creator: "Example Creator"
-  },
-  {
-    rank: 2,
-    name: "Another Level",
-    creator: "Another Creator"
-  },
-  {
-    rank: 3,
-    name: "Hard Level",
-    creator: "GD Player"
-  }
+    {
+        rank: 1,
+        name: "Example Demon",
+        creator: "Example Creator",
+        points: "100.00",
+        image: "https://placehold.co/400x225/202b3b/ffffff?text=Example+Demon",
+        list: "main"
+    },
+    {
+        rank: 2,
+        name: "Another Demon",
+        creator: "Player",
+        points: "95.50",
+        image: "https://placehold.co/400x225/35294b/ffffff?text=Another+Demon",
+        list: "main"
+    },
+    {
+        rank: 3,
+        name: "Hard Demon",
+        creator: "GD Creator",
+        points: "91.20",
+        image: "https://placehold.co/400x225/593b35/ffffff?text=Hard+Demon",
+        list: "main"
+    },
+    {
+        rank: 4,
+        name: "Extended Demon",
+        creator: "Level Creator",
+        points: "85.00",
+        image: "https://placehold.co/400x225/244c42/ffffff?text=Extended+Demon",
+        list: "extended"
+    },
+    {
+        rank: 5,
+        name: "Legacy Demon",
+        creator: "Creator",
+        points: "70.00",
+        image: "https://placehold.co/400x225/414141/ffffff?text=Legacy+Demon",
+        list: "legacy"
+    }
 ];
 
-function showLevels(list) {
-  document.getElementById("levels").innerHTML =
-    list.map(level => `
-      <div class="level">
-        <div class="rank">#${level.rank}</div>
-        <div>
-          <h3>${level.name}</h3>
-          <p>by ${level.creator}</p>
-        </div>
-      </div>
+let currentList = "main";
+
+function showList(list) {
+    currentList = list;
+
+    const titles = {
+        main: "Main List",
+        extended: "Extended List",
+        legacy: "Legacy List"
+    };
+
+    document.getElementById("list-title").textContent =
+        titles[list];
+
+    document.getElementById("search").value = "";
+
+    renderLevels();
+}
+
+function renderLevels() {
+    const query = document
+        .getElementById("search")
+        .value.toLowerCase();
+
+    const filtered = levels.filter(level => {
+        return level.list === currentList &&
+        (
+            level.name.toLowerCase().includes(query) ||
+            level.creator.toLowerCase().includes(query)
+        );
+    });
+
+    const container = document.getElementById("levels");
+
+    if (filtered.length === 0) {
+        container.innerHTML = "<p>No levels found.</p>";
+        return;
+    }
+
+    container.innerHTML = filtered.map(level => `
+        <article class="level-card">
+            <img
+                src="${level.image}"
+                alt="${level.name}"
+            >
+
+            <div class="level-info">
+                <h2>
+                    <span>#${level.rank}</span>
+                    – ${level.name}
+                </h2>
+
+                <p>
+                    published by
+                    <a href="#">${level.creator}</a>
+                </p>
+
+                <p class="points">
+                    ${level.points} (100%) points
+                </p>
+            </div>
+        </article>
     `).join("");
 }
 
-function searchLevels() {
-  const query = document
-    .getElementById("search")
-    .value.toLowerCase();
-
-  const filtered = levels.filter(level =>
-    level.name.toLowerCase().includes(query) ||
-    level.creator.toLowerCase().includes(query)
-  );
-
-  showLevels(filtered);
-}
-
-showLevels(levels);
+renderLevels();
 </script>
 
 </body>
