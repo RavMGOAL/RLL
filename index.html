@@ -467,18 +467,17 @@ footer {
         </div>
 
         <div class="sidebar-box">
-            <h2>Guidelines</h2>
+            <h2>Richtlinien</h2>
             <hr>
 
             <p>
-                All list operations are carried out
-                in accordance with our guidelines.
+                Hier stehen alle Richtlinien bezüglich Playtrough/Verification Videos.
             </p>
 
             <a href="#guidelines"
                class="sidebar-link"
                onclick="showInfo('Guidelines'); return false;">
-                Read the guidelines
+                Zu den Richtlinien
             </a>
         </div>
 
@@ -734,19 +733,14 @@ function showInfo(title) {
         info.innerHTML = `
             <div class="level-detail">
                 <button class="back-button" onclick="goHome()">
-                    ← Back to list
+                    ← Zurück
                 </button>
 
                 <h1 class="detail-title">Its_Davidx2</h1>
 
                 <div class="detail-section">
-                    <h3>Community</h3>
-                    <p>Welcome to the RLL Community Level List!</p>
-                </div>
-
-                <div class="detail-section">
                     <h3>Twitch</h3>
-                    <p>Follow Its_Davidx2 on Twitch:</p>
+                    <p>Folgt Its_Davidx2 auf Twitch:</p>
                     <a
                         href="https://www.twitch.tv/its_davidx2"
                         target="_blank"
@@ -762,11 +756,15 @@ function showInfo(title) {
         info.innerHTML = `
             <div class="level-detail">
                 <button class="back-button" onclick="goHome()">
-                    ← Back to list
+                    ← Zurück
                 </button>
 
                 <h1 class="detail-title">${title}</h1>
-                <p>This page is currently under construction.</p>
+                <p>Playtrough:
+                Vor dem Completion Attemp muss mindestens 3 Sekunden Gameplay gezeigt werden. Das Completion Video muss einen CPS Visualizer und einen No Cheat Indicator übers ganze level samt Endscreen. Ebenfalls muss die ganze Endscreen Animation zu sehen sein.
+                
+                Verifikation:
+                Es gelten die gleichen Richtlinien wie bei einem Playtrough.</p>
             </div>
         `;
     }
