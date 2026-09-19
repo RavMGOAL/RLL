@@ -60,6 +60,13 @@ header {
     color: #333;
 }
 
+.header-links span {
+    color: #050505;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
 /* NAVIGATION */
 
 nav {
@@ -313,7 +320,8 @@ footer {
         letter-spacing: -4px;
     }
 
-    .header-links a {
+    .header-links a,
+    .header-links span {
         font-size: clamp(20px, 4.5vw, 30px);
     }
 
@@ -358,7 +366,8 @@ footer {
         letter-spacing: -4px;
     }
 
-    .header-links a {
+    .header-links a,
+    .header-links span {
         font-size: 19px;
     }
 
@@ -381,17 +390,12 @@ footer {
     </a>
 
     <div class="header-links">
-        <a href="#" onclick="showInfo('Ist_David2'); return false;">
-            Ist_David2
+        <a href="#" onclick="showInfo('Its_Davidx2'); return false;">
+            Its_Davidx2
         </a>
 
-        <a href="#" onclick="showInfo('Community'); return false;">
-            Community
-        </a>
-
-        <a href="#" onclick="showList('main'); return false;">
-            Level List
-        </a>
+        <span>Community</span>
+        <span>Level List</span>
     </div>
 </header>
 
@@ -730,16 +734,46 @@ function showInfo(title) {
     const info = document.getElementById("info-view");
     info.style.display = "block";
 
-    info.innerHTML = `
-        <div class="level-detail">
-            <button class="back-button" onclick="goHome()">
-                ← Back to list
-            </button>
+    if (title === "Its_Davidx2") {
+        info.innerHTML = `
+            <div class="level-detail">
+                <button class="back-button" onclick="goHome()">
+                    ← Back to list
+                </button>
 
-            <h1 class="detail-title">${title}</h1>
-            <p>This page is currently under construction.</p>
-        </div>
-    `;
+                <h1 class="detail-title">Its_Davidx2</h1>
+
+                <div class="detail-section">
+                    <h3>Community</h3>
+                    <p>Welcome to the RLL Community Level List!</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Twitch</h3>
+                    <p>Follow Its_Davidx2 on Twitch:</p>
+                    <a
+                        href="https://www.twitch.tv/its_davidx2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="sidebar-link"
+                    >
+                        twitch.tv/its_davidx2
+                    </a>
+                </div>
+            </div>
+        `;
+    } else {
+        info.innerHTML = `
+            <div class="level-detail">
+                <button class="back-button" onclick="goHome()">
+                    ← Back to list
+                </button>
+
+                <h1 class="detail-title">${title}</h1>
+                <p>This page is currently under construction.</p>
+            </div>
+        `;
+    }
 
     window.location.hash = title.toLowerCase().replaceAll(" ", "-");
     window.scrollTo(0, 0);
